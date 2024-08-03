@@ -1,0 +1,45 @@
+<div class="editar-producto form-style" *ngIf="editing">
+  <h2>Editar Producto</h2>
+  <form [formGroup]="productForm">
+    <div class="form-row">
+      <label class="form-label" for="nombre">Nombre</label>
+      <input class="form-input" id="nombre" formControlName="nombre">
+    </div>
+
+    <div class="form-row">
+      <label class="form-label" for="descripcion">Descripción</label>
+      <input class="form-input" id="descripcion" formControlName="descripcion">
+    </div>
+
+    <div class="form-row">
+      <label class="form-label" for="precio">Precio</label>
+      <input class="form-input" id="precio" type="number" formControlName="precio">
+    </div>
+
+    <div class="form-row">
+      <label class="form-label" for="stock">Stock</label>
+      <input class="form-input" id="stock" type="number" formControlName="stock">
+    </div>
+
+    <div class="form-row">
+      <label class="form-label" for="proveedor_id">Proveedor</label>
+      <select class="form-input" id="proveedor_id" formControlName="proveedor_id">
+        <option value="" disabled>--Seleccione--</option>
+        <option *ngFor="let proveedor of proveedores" [value]="proveedor.id">{{proveedor.nombre}}</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label class="form-label" for="categoria_id">Categoría</label>
+      <select class="form-input" id="categoria_id" formControlName="categoria_id">
+        <option value="" disabled>--Seleccione--</option>
+        <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nombre}}</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <button class="form-button" type="button" (click)="updateProduct(producto.id, productForm.value)">Actualizar</button>
+      <button class="form-button" type="button" (click)="close()">Cerrar</button>
+    </div>
+  </form>
+</div>

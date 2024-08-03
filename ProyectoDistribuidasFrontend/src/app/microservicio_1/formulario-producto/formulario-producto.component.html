@@ -1,0 +1,55 @@
+<h2>Productos</h2>
+<form [formGroup]="productoForm" (ngSubmit)="onSubmit()" class="form-style">
+  <div class="form-row">
+    <label class="form-label">
+      Nombre:
+      <input type="text" formControlName="nombre" class="form-input">
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">
+      Descripción:
+      <input type="text" formControlName="descripcion" class="form-input">
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">
+      Precio:
+      <input type="number" formControlName="precio" class="form-input">
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">
+      Stock:
+      <input type="number" formControlName="stock" class="form-input">
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">
+      Proveedor
+      <select formControlName="proveedor_id" class="form-input">
+        <option value="" disabled selected>--Seleccione--</option>
+        <option *ngFor="let proveedor of proveedores" [value]="proveedor.id">{{ proveedor.nombre }}</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="form-row">
+
+    <label class="form-label">
+      Categoría
+      <select formControlName="categoria_id" class="form-input">
+        <option value="" disabled selected>--Seleccione--</option>
+        <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nombre }}</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="form-row">
+    <button type="submit" class="form-button">Submit</button>
+  </div>
+</form>

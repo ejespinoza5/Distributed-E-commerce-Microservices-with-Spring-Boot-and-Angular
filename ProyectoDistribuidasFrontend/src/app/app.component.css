@@ -1,0 +1,65 @@
+/* Estilos globales */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f0f0; /* Color de fondo */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Estilos para el contenido principal */
+
+.content {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Estilos para el menú lateral */
+
+.sidenav {
+  width: 240px;
+  background-color: #f9f9f9; /* Color de fondo del menú */
+}
+
+mat-nav-list {
+  padding-top: 20px;
+}
+
+mat-nav-list a, button[mat-menu-item] {
+  text-decoration: none;
+  color: #666;
+  display: block;
+  padding: 12px 24px;
+  transition: background-color 0.3s ease;
+}
+
+mat-nav-list a:hover, button[mat-menu-item]:hover {
+  background-color: #e0e0e0; /* Color de fondo al pasar el ratón */
+}
+
+mat-nav-list .active {
+  background-color: #d1d1d1; /* Color de fondo para elemento activo */
+  font-weight: bold;
+}
+
+/* Estilos para el menú desplegable */
+
+.custom-menu {
+  background-color: #f9f9f9; /* Color de fondo del menú desplegable */
+
+}
+
+.mat-menu-item {
+  padding: 8px 16px;
+}
+
+.mat-menu-item:hover {
+  background-color: #e0e0e0;
+}

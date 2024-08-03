@@ -1,0 +1,28 @@
+<h2>Añadir proveedor</h2>
+<form [formGroup]="proveedorForm" (ngSubmit)="onSubmit()" class="form-style">
+  <div class="form-row">
+
+    <label class="form-label">
+      Nombre del proveedor:
+      <input type="text" formControlName="nombre" class="form-input">
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">
+      Dirección del proveedor:
+      <input type="text" formControlName="direccion" class="form-input">
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">
+      Teléfono del proveedor:
+      <input type="text" formControlName="telefono" class="form-input">
+    </label>
+  </div>
+
+  <div class="form-row">
+    <button type="submit" class="form-button">Submit</button>
+  </div>
+</form>

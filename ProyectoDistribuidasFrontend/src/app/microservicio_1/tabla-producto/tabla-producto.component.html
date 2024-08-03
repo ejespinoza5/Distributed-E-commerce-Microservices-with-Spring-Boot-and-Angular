@@ -1,0 +1,74 @@
+<mat-form-field>
+  <mat-label>Registros por página</mat-label>
+  <mat-select [(value)]="pageSize">
+    <mat-option *ngFor="let size of pageSizeOptions" [value]="size">
+      {{ size }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<mat-table [dataSource]="productos | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems: totalItems }">
+
+  <!-- Nombre Column -->
+  <ng-container matColumnDef="nombre">
+    <mat-header-cell *matHeaderCellDef> Nombre</mat-header-cell>
+    <mat-cell *matCellDef="let producto"> {{ producto.nombre }}</mat-cell>
+  </ng-container>
+
+  <!-- Descripción Column -->
+  <ng-container matColumnDef="descripcion">
+    <mat-header-cell *matHeaderCellDef> Descripción</mat-header-cell>
+    <mat-cell *matCellDef="let producto"> {{ producto.descripcion }}</mat-cell>
+  </ng-container>
+
+  <!-- Precio Column -->
+  <ng-container matColumnDef="precio">
+    <mat-header-cell *matHeaderCellDef> Precio</mat-header-cell>
+    <mat-cell *matCellDef="let producto"> {{ producto.precio }}</mat-cell>
+  </ng-container>
+
+  <!-- Stock Column -->
+  <ng-container matColumnDef="stock">
+    <mat-header-cell *matHeaderCellDef> Stock</mat-header-cell>
+    <mat-cell *matCellDef="let producto"> {{ producto.stock }}</mat-cell>
+  </ng-container>
+
+<!-- Proveedor Column -->
+<ng-container matColumnDef="proveedor_id">
+  <mat-header-cell *matHeaderCellDef> Proveedor</mat-header-cell>
+  <mat-cell *matCellDef="let producto">
+    <ng-container *ngFor="let proveedor of proveedores">
+      <span *ngIf="proveedor.id === producto.proveedor_id">{{ proveedor.nombre }}</span>
+    </ng-container>
+  </mat-cell>
+</ng-container>
+
+<!-- Categoría Column -->
+<ng-container matColumnDef="categoria_id">
+  <mat-header-cell *matHeaderCellDef> Categoría</mat-header-cell>
+  <mat-cell *matCellDef="let producto">
+    <ng-container *ngFor="let categoria of categorias">
+      <span *ngIf="categoria.id === producto.categoria_id">{{ categoria.nombre }}</span>
+    </ng-container>
+  </mat-cell>
+</ng-container>
+
+  <!-- Acciones Column -->
+  <ng-container matColumnDef="acciones">
+    <mat-header-cell *matHeaderCellDef> Acciones</mat-header-cell>
+    <mat-cell *matCellDef="let producto">
+      <button mat-icon-button color="primary" aria-label="Editar producto" (click)="editProduct(producto)">
+  <mat-icon>edit</mat-icon>
+</button>
+      <button mat-icon-button color="warn" aria-label="Eliminar producto" (click)="deleteProduct(producto.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>

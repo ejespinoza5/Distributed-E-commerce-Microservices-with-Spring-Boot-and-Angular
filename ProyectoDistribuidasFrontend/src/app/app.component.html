@@ -1,0 +1,23 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/categorias" routerLinkActive="active">Categorías</a>
+      <a mat-list-item routerLink="/proveedores" routerLinkActive="active">Proveedores</a>
+      <a mat-list-item routerLink="/productos/nuevo" routerLinkActive="active">Agregar Producto</a>
+      <a mat-list-item routerLink="/productos" routerLinkActive="active">Productos</a>
+      <button mat-menu-item [matMenuTriggerFor]="usersMenu">Usuarios</button>
+    </mat-nav-list>
+    <mat-menu #usersMenu="matMenu" class="custom-menu">
+      <button mat-menu-item routerLink="/pedidos" routerLinkActive="active">Pedidos</button>
+      <button mat-menu-item routerLink="/pagos" routerLinkActive="active">Pagos</button>
+    </mat-menu>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">E-commerce Admin</mat-toolbar>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,51 @@
+<h2>Realizar Pago</h2>
+<form [formGroup]="pagoForm" (ngSubmit)="onSubmit()" class="form-style">
+  <div class="form-row">
+    <label class="form-label">
+      Pedido
+      <select formControlName="pedidoId" class="form-input">
+        <option *ngFor="let pedido of pedidos" [value]="pedido.id">{{pedido.nombreCliente}} {{pedido.apellidosCliente}}</option>
+      </select>
+    </label>
+
+    <label class="form-label">
+      Nombre del cliente
+      <input type="text" formControlName="nombreCliente" class="form-input" readonly>
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">
+      Apellidos del cliente
+      <input type="text" formControlName="apellidosCliente" class="form-input" readonly>
+    </label>
+
+    <label class="form-label">
+      Número de tarjeta
+      <input type="text" formControlName="numeroTarjeta" class="form-input">
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">
+      Fecha de vencimiento
+      <input type="text" formControlName="fechaVencimiento" class="form-input">
+    </label>
+
+    <label class="form-label">
+      Código de seguridad
+      <input type="text" formControlName="codigoSeguridad" class="form-input">
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">
+      Monto
+      <input type="text" formControlName="monto" class="form-input" readonly>
+    </label>
+  </div>
+
+  <div class="form-row">
+    <button type="submit" class="form-button">Enviar</button>
+  </div>
+</form>

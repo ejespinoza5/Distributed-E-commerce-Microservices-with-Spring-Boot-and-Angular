@@ -1,0 +1,64 @@
+<h2>Realizar Pedido</h2>
+<form [formGroup]="productoForm" (ngSubmit)="onSubmit()" class="form-style">
+  <div class="form-row">
+    <label class="form-label">
+      Producto
+      <select formControlName="productoId" class="form-input">
+        <option value="" disabled selected>--Seleccione--</option>
+        <option *ngFor="let producto of products" [value]="producto.id">{{ producto.nombre }}</option>
+      </select>
+    </label>
+
+    <label class="form-label">
+      Precio
+      <input type="number" formControlName="precioUnitario" class="form-input" readonly>
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">
+      Disponibles
+      <input type="number" formControlName="stock" class="form-input" readonly>
+    </label>
+
+    <label class="form-label">
+      Nombre
+      <input type="text" formControlName="nombreCliente" class="form-input">
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">
+      Apellido
+      <input type="text" formControlName="apellidosCliente" class="form-input">
+    </label>
+
+    <label class="form-label">
+      Cédula
+      <input type="text" formControlName="cedulaCliente" class="form-input">
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">
+      Cantidad
+      <input type="number" formControlName="cantidad" class="form-input">
+    </label>
+
+    <label class="form-label">
+      Total
+      <input type="number" formControlName="total" class="form-input" readonly>
+    </label>
+
+    <label class="form-label">
+      fecha de entrega
+      <input type="date" formControlName="fecha_entrega" class="form-input" >
+    </label>
+  </div>
+
+
+
+  <div class="form-row">
+    <button type="submit" class="form-button">Enviar</button>
+  </div>
+</form>
